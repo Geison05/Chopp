@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 import { useNavigation } from '@react-navigation/native';
-import axios from "axios";
+import api from "../services/api";
 
 
 export const AuthContext = createContext({});
@@ -14,12 +14,11 @@ function AuthProvider({ children }) {
 
     async function signUp(email, senha, nome) {
         try {
-            // Faça uma solicitação POST para o servidor JSON Server usando axios
-           /* const response = await axios.post('http://localhost:3000/users', {
+             const response = await api.post('/users', {
                 name: nome,
                 senha: senha,
                 email: email,
-            })*/
+            })
 
             navigation.goBack();
 
